@@ -1,0 +1,66 @@
+<div ng-controller="ContatoPresenter" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form name="faleconosco" class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Fale Conosco</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="glyphicon glyphicon-user"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="name" ng-model="nome" type="text" placeholder="Nome" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="glyphicon glyphicon-user"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="name" ng-model="sobrenome" type="text" placeholder="Sobrenome" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" ng-model="email" type="text" placeholder="Email" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                            <div class="col-md-8">
+                                <input id="phone" name="phone" ng-model="telefone" type="text" placeholder="Telefone" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="glyphicon glyphicon-list-alt"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control"  ng-model="msg" id="message" name="message" placeholder="Entre com sua msg aqui. Nós iremos retornar em 2 dias." rows="7" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <a ng-click="command()" class="btn btn-default btn-lg">Submit</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .header {
+        color: #101112;
+        font-size: 27px;
+        padding: 10px;
+    }
+
+    .bigicon {
+        font-size: 35px;
+        color: #36A0FF;
+    }
+</style>

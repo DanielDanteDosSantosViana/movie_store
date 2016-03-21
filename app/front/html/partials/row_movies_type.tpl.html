@@ -1,0 +1,231 @@
+    <div ng-include="'/tmpl/generos.html'"></div>
+
+    <div ng-controller = "HomePresenter">
+        <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="/fonts/banner/ted2_grande.jpeg" alt="">
+                            <div class="summary">
+                                <div class="content-movie">
+                                    <div class="img-movie">
+                                        <img src="/fonts/img_180x266/ted2_pequeno.jpeg" height="266" width="180">
+                                        <div class="classification age-16 overlay"></div>
+                                    </div>
+                                </div>
+
+                                <div class="txt-container">
+                                    <div class="txt">
+                                        <h1>Ted 2</h1>
+                                        <hr>
+                                        <p>Ted agora está casado com Tami-Lynn. Esse improvável casal quer ter um filho, e para isso Ted terá que provar na justiça que é uma pessoa.</p>
+                                        <a data-tf-inspect="-333229921" href="#" data-href="#" data-pid="MOV175982" class="more alugue gtm" data-product="alugue" data-gtm-category="home" data-gtm-action="adcast" data-gtm-label="ted-2-alugar" data-is-third-party="false">Alugue <strong>R$ 7,90</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="/fonts/banner/everly_grande.jpeg" alt="">
+
+                            <div class="summary">
+                                <div class="content-movie">
+                                    <div class="img-movie">
+                                        <img src="/fonts/img_180x266/everly_pequeno.jpeg" height="266" width="180"/>
+                                        <div class="classification age-16 overlay"></div>
+                                    </div>
+                                </div>
+
+                                <div class="txt-container">
+                                    <div class="txt">
+                                        <h1>Everly - Implacável e Perigosa</h1>
+                                        <hr>
+                                        <p>Uma escrava sexual que foi encarcerada por anos pelo chefe da máfia Yakuza enfrenta criminosos japoneses para proteger sua mãe e salvar sua filha, que não vê há anos. Filme de ação com Salma Hayek.</p>
+                                        <a href="#"  class="more alugue gtm" data-product="alugue" data-gtm-category="home" data-gtm-action="adcast" data-gtm-label="ted-2-alugar" data-is-third-party="false">Alugue <strong>R$ 6,90</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="/fonts/banner/irmao_urso_grande.jpeg" alt="">
+
+                                                            <div class="summary">
+                                <div class="content-movie">
+                                    <div class="img-movie">
+                                        <img src="/fonts/img_180x266/irmao_urso_pequeno.jpeg" height="266" width="180">
+                                        <div class="classification age-16 overlay"></div>
+                                    </div>
+                                </div>
+
+                                <div class="txt-container">
+                                    <div class="txt">
+                                        <h1>Irmão urso 2</h1>
+                                        <hr>
+                                        <p>A primavera chegou e Kenai acordou de sua primeira hibernação com um apetite voraz. Ele e seu irmão mais novo, Koda, estão animadíssimos para cair na floresta e saborear os melhores frutos. Durante essa jornada, Nita, uma antiga amiga de infância de Kenai, reaparece. Mas os Grandes Espíritos tem outros planos para ela e somente Kenai poderá ajudá-la.</p>
+                                        <a  href="#" data-href="#" class="more alugue gtm" data-product="alugue" data-gtm-category="home" data-gtm-action="adcast" data-gtm-label="ted-2-alugar" data-is-third-party="false">Alugue <strong>R$ 6,90</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div ng-repeat="genero in generos">
+                <div ng-if="genero.nome == 'Ação'" class="row">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#detalhe/{{movie._id}}">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews
+                                </p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="genero.nome == 'Drama'" class="row">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="genero.nome == 'Infantil'" class="row">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="genero.nome == 'Documentário'" class="row">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="genero.nome == 'Comédia'" class="row">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="genero.nome == 'Ficção'" class="row">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+        </div>

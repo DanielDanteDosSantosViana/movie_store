@@ -1,0 +1,23 @@
+ <div ng-include="'/tmpl/generos.html'"></div>
+<div ng-controller ="BuscadorGeneroPresenter" class="col-md-9">
+                    <header class="header-genero">
+                        <h3>{{genero.nome}}</h3>
+                    </header>
+                    <div ng-repeat="movie in genero.movies" class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a href="#">{{movie.nome}}</a>
+                                </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+</div>

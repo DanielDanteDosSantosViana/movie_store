@@ -1,0 +1,66 @@
+<div ng-controller="CadastroPresenter" class="container">
+
+    <div class="row">
+
+      <article class="col-xs-12 maincontent">
+        <header class="page-header">
+          <h1 class="page-title">Cadastro</h1>
+        </header>
+
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3 class="thin text-center">Nova Conta</h3>
+              <p class="text-center text-muted">Caso já tenha cadastrado acesse <a data-toggle="modal" data-target="#myModal">Login</a>. Caso contrário cadastre a seguir. </p>
+              <hr>
+
+              <form name="formUsuario">
+                <div class="top-margin">
+                  <label>Nome</label>
+                  <input class="form-control" ng-model="nome" type="text" name="nome" >
+                </div>
+                <div class="top-margin">
+                  <label>Sobrenome</label>
+                  <input class="form-control" ng-model="sobrenome" name="sobrenome" type="text">
+                </div>
+                <div class="top-margin">
+                  <label>Email <span class="text-danger">*</span></label>
+                  <input class="form-control" ng-model="email" name="email" type="text" required>
+
+                </div>
+
+                <div class="row top-margin">
+                  <div class="col-sm-6">
+                    <label>Senha <span class="text-danger">*</span></label>
+                    <input class="form-control" name="senha" ng-model="senha" type="password" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Confirmar Senha <span class="text-danger">*</span></label>
+                    <input class="form-control" ng-model="confirma_senha" name="confirma_senha" type="password" required >
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <div class="col-lg-8">
+                    <label class="checkbox">
+                      <input type="checkbox"  ng-model="aceite" name="aceite" required>
+                      Eu li os <a href="page_terms.html">Termos e condições</a>
+                    </label>
+                  </div>
+                  <div class="col-lg-4 text-right">
+                    <button class="btn btn-action" ng-click="command()" type="submit">Cadastrar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </article>
+      <!-- /Article -->
+
+    </div>
+  </div>

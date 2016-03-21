@@ -1,0 +1,30 @@
+{
+  "name": "movie_store",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./bin/www",
+  "scripts": {
+    "start": "node ./app/backend/bin/www",
+    "nodemon": "nodemon ./app/backend/bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Viana <danielviana@gmail.com> ",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.33",
+    "body-parser": "^1.12.4",
+    "config": "^1.14.0",
+    "consolidate": "^0.14.0",
+    "debug": "^2.2.0",
+    "express": "^4.12.4",
+    "method-override": "^2.3.3",
+    "mocha": "^2.3.4",
+    "mongojs": "^0.18.2",
+    "mongoose": "^4.3.5",
+    "nodemailer": "^2.3.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}

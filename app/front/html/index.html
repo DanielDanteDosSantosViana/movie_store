@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Movie Store</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/bower/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/bootstrap-theme.css" rel="stylesheet">
+        <!-- AngularJS -->
+    <script type="text/javascript" src="/bower/angular/angular.js"></script>
+
+    <script type="text/javascript" src="/bower/angular-route/angular-route.js"></script>
+
+        <!-- Aplicação -->
+    <script type="text/javascript" src="/js/app_front.js"></script>
+
+        <!-- Apresentacao -->
+    <script type="text/javascript" src="/js/controller/home/home_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/generos/genero_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/generos/buscador_genero_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/mais_vistos/mais_vistos_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/header/header_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/header/buscador_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/lancamento/lancamento_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/contact/contato_email_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/cadastro/cadastro_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/detalhe/detalhe_controller.js"></script>
+
+    <script type="text/javascript" src="/js/controller/carrinho/carrinho_controller.js"></script>
+
+
+        <!-- Service -->
+    <script type="text/javascript" src="/js/service/movie_store_service.js"></script>
+
+        <!-- Model -->
+    <script type="text/javascript" src="/js/model/movie.js"></script>
+    <script type="text/javascript" src="/js/model/genero.js"></script>
+    <script type="text/javascript" src="/js/model/useremail.js"></script>
+    <script type="text/javascript" src="/js/model/usuario.js"></script>
+
+        <!-- Directiva -->
+    <script type="text/javascript" src="/js/directive/repeat.js"></script>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/bower/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+
+<body ng-app="moviestore">
+    <!-- Header -->
+   <div ng-include="'/tmpl/header.html'"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div ng-view="" data-autoscroll="true"></div>
+        </div>
+    </div>
+    <!-- Login Modal -->
+    <div ng-include="'/tmpl/login.html'"></div>
+
+    <!-- footer -->
+    <div ng-include="'/tmpl/footer.html'"></div>
+
+
+</body>
+
+</html>
