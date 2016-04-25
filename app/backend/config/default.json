@@ -5,5 +5,7 @@
     "server": "localhost",
     "port": 27017,
     "database": "movie_store"
-  }
+  },
+
+  "tokenSecreto":"cefet"
 }

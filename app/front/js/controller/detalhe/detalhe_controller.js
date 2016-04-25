@@ -1,9 +1,14 @@
 angular.module("MovieStoreController").controller("DetalheMoviePresenter", [
+    "$rootScope",
     "$scope",
     "$routeParams",
     "MovieStoreService",
-    function($scope, $routeParams,MovieStoreService)
+    function($rootScope,$scope, $routeParams,MovieStoreService)
     {
+
+        var addItem = function(movie){
+          $rootScope.$broadcast('addItemCarrinho',movie);
+        };
 
         var detalheMovie = function()
         {
@@ -30,6 +35,7 @@ angular.module("MovieStoreController").controller("DetalheMoviePresenter", [
         //construtor
         {
             $scope.idMovie = $routeParams.idMovie;
+            $scope.addItem = addItem;
             detalheMovie();
         };
     }

@@ -1,8 +1,9 @@
 angular.module("MovieStoreController").controller("CadastroPresenter", [
     "$scope",
     "$routeParams",
+    "$location",
     "MovieStoreService",
-    function($scope, $routeParams,MovieStoreService)
+    function($scope, $routeParams,$location,MovieStoreService)
     {
 
         var cadastrar = function()
@@ -20,11 +21,12 @@ angular.module("MovieStoreController").controller("CadastroPresenter", [
                   MovieStoreService.criarUsuario(
                       function(data)
                       {
-                        alert(data);
+                        alert("Usuário Cadastrado com Sucesso!");
+                        $location.path("/home");
                       },
 
                       function(data) {
-                          $scope.response = data;
+                          alert("Error no cadastro!")
                       },
 
                       usuario
@@ -46,7 +48,7 @@ angular.module("MovieStoreController").controller("CadastroPresenter", [
         }
 
        function preenchimentoObrigatorio(){
-          if(($scope.senha!="" && $scope.senha!= undefined) && ($scope.email!="" && $scope.email!= undefined) && ($scope.confirma_senha!="" && $scope.confirma_senha!= undefined) && ($scope.aceite!="" && $scope.aceite!= undefined)){
+          if(($scope.senha!="" && $scope.senha!= undefined) && ($scope.email!="" && $scope.email!= undefined) && ($scope.confirma_senha!="" && $scope.confirma_senha!= undefined)){
             return true;
           }
           return false;
@@ -54,12 +56,11 @@ angular.module("MovieStoreController").controller("CadastroPresenter", [
 
         //construtor
         {
-            $scope.nome;
-            $scope.sobrenome;
-            $scope.email;
-            $scope.senha;
-            $scope.confirma_senha;
-            $scope.aceite;
+            $scope.nome = null;
+            $scope.sobrenome = null;
+            $scope.email =null;
+            $scope.senha = null;
+            $scope.confirma_senha = null;
             $scope.command = cadastrar;
 
 

@@ -1,4 +1,5 @@
 var express = require('express'),
+    jwt        = require("jwt-simple"),
     router = express.Router();
 
 
@@ -44,9 +45,17 @@ router.get('/lancamentos',MovieStoreController.getLancamentos.bind(MovieStoreCon
 
 router.post('/email/sendContato', EmailController.sendContato.bind(EmailController));
 
-router.post('/usuario/criar',UsuarioController.criar.bind(UsuarioController));
+
+
 
 router.get('/movie/:_id', MovieStoreController.getById.bind(MovieStoreController));
+
+
+router.get('/usuario/:id', UsuarioController.getById.bind(UsuarioController));
+router.post('/usuario/editar', UsuarioController.editar.bind(UsuarioController));
+router.post('/usuario/criar',UsuarioController.criar.bind(UsuarioController));
+router.post('/login',UsuarioController.login.bind(UsuarioController));
+
 
 
 module.exports = router;

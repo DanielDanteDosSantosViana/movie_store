@@ -12,7 +12,7 @@
                 <a class="navbar-brand" href="#home">Home</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div ng-controller="HeaderPresenter" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="#sobre">Sobre</a>
@@ -26,16 +26,26 @@
                     <li>
                         <a href="#mais_vistos">Mais Vistos</a>
                     </li>
+
+                    <li ng-show="logado">
+                        <a href="#meus_filmes">Meus Filmes</a>
+                    </li>
+
                 </ul>
-                <form ng-controller="HeaderPresenter" class="navbar-form navbar-right" role="search">
+                <form  class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" ng-model="param" class="form-control" placeholder="Filmes, Series..."/>
                     </div>
                     <a href="#/search/{{param}}" class="btn btn-default">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </a>
-                    <button data-toggle="modal"  data-target="#myModal" type="button" class="btn btn-default">Entrar</button>
-                    <a class="btn btn-default" ng-click="adicionarCarrinho()">
+                    <button ng-show="!logado" data-toggle="modal"  data-target="#myModal" type="button" class="btn btn-default">Entrar</button>
+
+                    <a ng-show="logado" href="#minhaconta/{{idUser}}" data-toggle="modal"  type="button"  class="btn btn-default">Minha Conta</a>
+
+                    <button ng-show="logado" data-toggle="modal"  type="button" ng-click="logout()"  class="btn btn-default">Logout</button>
+
+                    <a class="btn btn-default" href="#/meucarrinho">
                      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
                      </span>
                      <span class="badge ng-binding"> {{carrinho}}</span>

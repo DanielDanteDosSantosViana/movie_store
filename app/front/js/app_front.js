@@ -68,6 +68,11 @@ app.config(function($routeProvider){
         templateUrl:'/partials/carrinho/carrinho.tpl.html',
       });
 
+ $routeProvider.when('/minhaconta/:idUser',
+      {
+        templateUrl:'/partials/minhaconta/minha_conta.tpl.html',
+      });
+
  $routeProvider.otherwise({redirectTo:'/'});
 
 });

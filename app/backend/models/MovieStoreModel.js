@@ -13,7 +13,7 @@ MovieDAO.prototype.findLancamento = function(callback) {
 };
 
 MovieDAO.prototype.find = function(query, callback) {
-  this.model.find({  nome: {$regex: query }}).exec(callback);
+  this.model.find({  nome: {$regex: new RegExp(query , "i")}}).exec(callback);
 };
 
 MovieDAO.prototype.vistos = function(query,callback) {

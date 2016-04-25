@@ -1,6 +1,6 @@
 angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
-    "$http",
-    function($http)
+    "$http","$rootScope",
+    function($http,$rootScope)
     {
         function MovieStoreServiceObject()
         {
@@ -56,6 +56,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(movies);
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -85,7 +86,10 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
 
                         fn_success(data.resposta);
+                        $rootScope.$broadcast('verifToken');
+
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -122,6 +126,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                          fn_success(generos);
                     }
 
+                    $rootScope.$broadcast('verifToken');
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
                   });
@@ -149,6 +154,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                     {
                          fn_success(data.resposta);
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -177,6 +183,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                     {
                          fn_success(data.resposta);
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -209,6 +216,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -240,6 +248,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -272,6 +281,7 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
+                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -301,12 +311,46 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                     else
                     {
 
-
                         fn_success(data.resposta);
                     }
 
+                    $rootScope.$broadcast('verifToken');
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
+                  });
+            },
+
+           self.login = function(fn_success, fn_error,_email,_senha)
+            {
+                $http({
+                    method: "POST",
+                    url: "/movie_store/login",
+                    cache: false,
+                    data:{email:_email,senha:_senha},
+                    responseType: "json"
+                }).
+                success(function(data , status , headers, config)
+                {
+                    if(data.erro != null)
+                    {
+                        fn_error(data.erro);
+                    }
+                    else if (data.resposta == null)
+                    {
+                        fn_error("NULL response.");
+                    }
+                    else
+                    {
+
+                        fn_success(data.resposta);
+
+
+                    }
+
+                    $rootScope.$broadcast('verifToken');
+
+                }).error(function(data, status, headers, config) {
+                  fn_error(data);
                   });
             },
 
@@ -335,16 +379,83 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
+                    $rootScope.$broadcast('verifToken');
 
+                }).error(function(data, status, headers, config) {
+                  fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
+                  });
+            },
+
+           self.getUserById = function(fn_success, fn_error,id)
+            {
+
+                $http({
+                    method: "GET",
+                    url: "/movie_store/usuario/"+id,
+                    cache: false,
+                    responseType: "json"
+                }).
+                success(function(data , status , headers, config)
+                {
+                    if(data.erro != null)
+                    {
+                        fn_error(data.erro);
+                    }
+                    else if (data.resposta == null)
+                    {
+                        fn_error("NULL response.");
+                    }
+                    else
+                    {
+
+
+                        fn_success(data.resposta);
+                    }
+                    $rootScope.$broadcast('verifToken');
+
+                }).error(function(data, status, headers, config) {
+                  fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
+                  });
+            },
+            self.editarUsuario = function(fn_success, fn_error, user)
+            {
+
+                $http({
+                    method: "POST",
+                    url: "/movie_store/usuario/editar",
+                    data:{usuario:{nome:user.nome, sobrenome:user.sobrenome, email:user.email, senha:user.senha , id: user.id}},
+                    cache: false,
+                    responseType: "json"
+                }).
+                success(function(data , status , headers, config)
+                {
+                    if(data.erro != null)
+                    {
+                        fn_error(data.erro);
+                    }
+                    else if (data.resposta == null)
+                    {
+                        fn_error("NULL response.");
+                    }
+                    else
+                    {
+
+                        fn_success(data.resposta);
+                    }
+
+                    $rootScope.$broadcast('verifToken');
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
                   });
             };
 
+
         }
 
          return new MovieStoreServiceObject();
     }
+
+
 ]);
 
 
