@@ -86,10 +86,8 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
 
                         fn_success(data.resposta);
-                        $rootScope.$broadcast('verifToken');
 
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -126,7 +124,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                          fn_success(generos);
                     }
 
-                    $rootScope.$broadcast('verifToken');
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
                   });
@@ -154,7 +151,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                     {
                          fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -183,7 +179,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                     {
                          fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -213,10 +208,8 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                     else
                     {
 
-
                         fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -248,7 +241,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -281,7 +273,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -314,7 +305,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                         fn_success(data.resposta);
                     }
 
-                    $rootScope.$broadcast('verifToken');
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
                   });
@@ -347,7 +337,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                     }
 
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error(data);
@@ -379,7 +368,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -411,7 +399,6 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
 
                         fn_success(data.resposta);
                     }
-                    $rootScope.$broadcast('verifToken');
 
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
@@ -443,7 +430,36 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                         fn_success(data.resposta);
                     }
 
-                    $rootScope.$broadcast('verifToken');
+                }).error(function(data, status, headers, config) {
+                  fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
+                  });
+            },
+            self.finalizar = function(fn_success, fn_error, aluguel)
+            {
+
+                $http({
+                    method: "POST",
+                    url: "/movie_store/aluguel",
+                    data:JSON.stringify(aluguel),
+                    cache: false,
+                    responseType: "json"
+                }).
+                success(function(data , status , headers, config)
+                {
+                    if(data.erro != null)
+                    {
+                        fn_error(data.erro);
+                    }
+                    else if (data.resposta == null)
+                    {
+                        fn_error("NULL response.");
+                    }
+                    else
+                    {
+
+                        fn_success(data.resposta);
+                    }
+
                 }).error(function(data, status, headers, config) {
                   fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
                   });

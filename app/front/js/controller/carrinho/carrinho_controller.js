@@ -9,6 +9,9 @@ angular.module("MovieStoreController").controller("CarrinhoPresenter", [
        var removeItem = function(movie){
             $rootScope.$broadcast('removeItemCarrinho',movie);
             loadTotal();
+            verificarSeCarrinhoPossuiProduto();
+            checkAuth();
+
         };
 
         var loadCarrinho = function(){
@@ -25,14 +28,36 @@ angular.module("MovieStoreController").controller("CarrinhoPresenter", [
             $scope.total = arredondado.toString().replace('.', ',') ;
         }
 
+        var verificarSeCarrinhoPossuiProduto = function(){
+            if($rootScope.carrinho!=null && $rootScope.carrinho.length > 0){
+                  $scope.possuiProdutos = true;
+            }else{
+                $scope.possuiProdutos = false;
+
+            }
+        }
+
+        var checkAuth = function(){
+         if($rootScope.token==null){
+            $scope.possuiProdutos = false;
+         }
+        }
+
+        var openModal = function(){
+            if($rootScope.token==null){
+                 $('#myModal').modal('show');
+            }
+        }
+
         //construtor
         {
-
             $scope.removeItem = removeItem;
+            $scope.possuiProdutos = false;
+            $scope.openModal = openModal;
             loadCarrinho();
             loadTotal();
-
-
+            verificarSeCarrinhoPossuiProduto();
+            checkAuth();
 
         };
     }

@@ -48,9 +48,11 @@
             <div class="row">
                 <div class="col-md-12">
                   <div class="col-md-12 text-right">
-                <button type="button" class="btn btn-danger custom-button-width .navbar-right">Finalizar Compra</button>
+                <a ng-show="possuiProdutos"  href="#/pagamento" type="button" class="btn btn-danger custom-button-width .navbar-right">Finalizar Compra</a>
 
-                <a type="button"  href="#/home" class="btn btn-default " >Continuar Comprando</a>
+                <button ng-show="!possuiProdutos" ng-click="openModal()" type="button" class="btn btn-primary disabled">Finalizar Compra</button>
+
+                <a type="button"  href="#/home" class="btn btn-default" >Continuar Comprando</a>
                 </div>
             </div>
   </div>

@@ -23,8 +23,10 @@ UsuarioController.prototype.criar = function(request, response, next) {
     .then(function(err, data) {
       if(!err){
         response.json({resposta:err});
+      }else{
+        response.json({resposta:"OK"})
+
       }
-      response.json({resposta:"OK"})
     })
     .catch(next);
 };

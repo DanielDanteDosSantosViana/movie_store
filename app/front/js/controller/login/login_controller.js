@@ -18,7 +18,7 @@ angular.module("MovieStoreController").controller("LoginPresenter", [
                   close();
                   $scope.email = null;
                   $scope.senha = null;
-                  $location.path('/home')
+                 // $location.path('/home')
               },
               function(data) {
                   alert(data.err);
@@ -34,6 +34,7 @@ angular.module("MovieStoreController").controller("LoginPresenter", [
           var close = function()
           {
              $('#myModal').modal('hide')
+             $location.path("/");
           };
 
         function validarCampos(){

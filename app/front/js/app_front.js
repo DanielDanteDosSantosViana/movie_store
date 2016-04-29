@@ -3,12 +3,15 @@
 angular.module("MovieStoreModuloServices", []);
 angular.module("MovieStoreController", []);
 angular.module("repeat", []);
+angular.module("authRoute", []);
+
 
 var app = angular.module('moviestore', [
   'ngRoute',
   'MovieStoreController',
   'MovieStoreModuloServices',
-  'repeat']);
+  'repeat',
+  'authRoute']);
 
 app.config(function($routeProvider){
 
@@ -73,6 +76,19 @@ app.config(function($routeProvider){
         templateUrl:'/partials/minhaconta/minha_conta.tpl.html',
       });
 
- $routeProvider.otherwise({redirectTo:'/'});
+  $routeProvider.when('/pagamento',
+      {
+        templateUrl:'/partials/pagamento/pagamento.tpl.html',
+      });
+
+    $routeProvider.when('/404',
+      {
+        templateUrl:'/partials/notfound/404.tpl.html',
+      });
+
+
+ $routeProvider.otherwise({redirectTo:'/404'});
+
+
 
 });

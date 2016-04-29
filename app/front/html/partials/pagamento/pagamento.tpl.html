@@ -1,0 +1,49 @@
+<div  ng-controller="PagamentoPresenter" class="container">
+
+
+    <div class="row">
+
+      <article class="col-xs-12 maincontent">
+        <header class="page-header">
+          <h1 class="page-title">Confirmar Pagamento</h1>
+        </header>
+
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3 class="thin text-center">Cartão de Crédito</h3>
+              <hr>
+              <form name="formUsuario">
+                <div class="top-margin">
+                  <label>Número - CVV<span class="text-danger">*</span></label>
+                  <input  type = "text" maxlength="19" placeholder="0000 0000 0000 0000 - 000" class="form-control" ng-model="nome" id="numeroCVV" onkeypress = "return verificaNumero(event)" name="nome" required>
+                </div>
+                <div class="top-margin">
+                  <label>Bandeira</label>
+                  <input class="form-control" value="Visa" name="Bandeira" type="text"  disabled>
+                </div>
+                <div class="top-margin">
+                  <label>Validade <span class="text-danger">*</span></label>
+                  <input type="Date" maxlength="7" class="form-control" id="datepicker" placeholder="Mes/Ano" name="email"  required>
+
+                </div>
+                <hr>
+
+                <div class="row">
+
+                  <div class="col-lg-12 text-right">
+                    <button class="btn btn-action" ng-click="command()" type="submit">Pagar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- /Article -->
+
+    </div>
+  </div>
