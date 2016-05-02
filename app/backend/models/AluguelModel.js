@@ -8,14 +8,8 @@ AluguelDAO.prototype.create = function(data, callback) {
     callback(err, result);
   });
 };
-AluguelDAO.prototype.findByUserId = function(query, callback) {
- var _id = request.params._id;
-  this.model.findOneAsync(_id)
-    .then(handleNotFound)
-    .then(function(data) {
-      response.json({resposta:data});
-    })
-    .catch(next);
+AluguelDAO.prototype.findByUserId = function(id, callback) {
+ this.model.find({idUsuario:id}).populate('movies').exec(callback);
 };
 
 

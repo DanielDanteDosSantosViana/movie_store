@@ -33,6 +33,17 @@ angular.module("MovieStoreController").controller("HeaderPresenter", [
 
           }
          });
+
+        $scope.$on('removeAll', function (events,args) {
+          if($scope.carrinho!= 0){
+            for(var i = 0; i < $rootScope.carrinho.length; ++i){
+                    $rootScope.carrinho.splice(i, 1);
+                    $scope.carrinho = $scope.carrinho-1;
+            }
+
+          }
+         });
+
         $scope.$on('verifToken', function (events,args) {
           if($rootScope.token!=null){
             $scope.logado = true;

@@ -15,8 +15,9 @@ function AluguelController(AluguelModel) {
 }
 
 AluguelController.prototype.alugar = function(request, response, next) {
-  var aluguel = request.body.aluguel;
-  console.log(aluguel);
+  var aluguel = request.body.aluguel.aluguel;
+  console.log(aluguel.movies);
+
   this.model.createAsync(aluguel)
     .then(function(err, data) {
       if(!err){
@@ -32,13 +33,9 @@ AluguelController.prototype.alugar = function(request, response, next) {
 AluguelController.prototype.findByUserId = function(request, response, next) {
   var idUser = request.params.id;
   this.model.findByUserIdAsync(idUser)
-    .then(function(err, data) {
-      if(!err){
-        response.json({resposta:err});
-      }else{
-        response.json({resposta:"OK"})
-      }
-
+    .then(handleNotFound)
+    .then(function(data) {
+      response.json({resposta:data});
     })
     .catch(next);
 };

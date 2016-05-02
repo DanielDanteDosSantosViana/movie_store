@@ -5,7 +5,8 @@ authorization.$inject = ['$rootScope', '$location']
 
 var urlSecurity = {
   pagamento:"/partials/pagamento/pagamento.tpl.html",
-  minhaconta:"/partials/minhaconta/minha_conta.tpl.html",
+  minhaConta:"/partials/minhaconta/minha_conta.tpl.html",
+  meusFilmes:"/partials/meusfilmes/meus_filmes.tpl.html",
 }
 
 function authorization($rootScope, $location)
@@ -22,7 +23,8 @@ function authorization($rootScope, $location)
 }
 
 function isRouteSecurity(type){
-  if(urlSecurity["pagamento"]===type||urlSecurity["minhaconta"]===type){
+  if(urlSecurity["pagamento"]===type||urlSecurity["minhaConta"]===type
+   ||urlSecurity["meusFilmes"]===type){
     return true;
   }
   return false;

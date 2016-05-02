@@ -87,6 +87,11 @@ app.config(function($routeProvider){
       });
 
 
+ $routeProvider.when('/meusFilmes/:idUser',
+      {
+        templateUrl:'/partials/meusfilmes/meus_filmes.tpl.html',
+      });
+
  $routeProvider.otherwise({redirectTo:'/404'});
 
 

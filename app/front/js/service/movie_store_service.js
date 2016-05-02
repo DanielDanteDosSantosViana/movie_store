@@ -440,7 +440,36 @@ angular.module("MovieStoreModuloServices").factory("MovieStoreService", [
                 $http({
                     method: "POST",
                     url: "/movie_store/aluguel",
-                    data:JSON.stringify(aluguel),
+                    data:JSON.stringify({aluguel:{aluguel}}),
+                    cache: false,
+                    responseType: "json"
+                }).
+                success(function(data , status , headers, config)
+                {
+                    if(data.erro != null)
+                    {
+                        fn_error(data.erro);
+                    }
+                    else if (data.resposta == null)
+                    {
+                        fn_error("NULL response.");
+                    }
+                    else
+                    {
+
+                        fn_success(data.resposta);
+                    }
+
+                }).error(function(data, status, headers, config) {
+                  fn_error("AJAX ERROR:\n" + config.method + ": " + config.url + "\nstatus: " + status + "\nresponse: " + angular.toJson(data, true));
+                  });
+            },
+            self.buscarMeusFilmes = function(fn_success, fn_error, idUser)
+            {
+
+                $http({
+                    method: "GET",
+                    url: "/movie_store/aluguel/"+idUser,
                     cache: false,
                     responseType: "json"
                 }).

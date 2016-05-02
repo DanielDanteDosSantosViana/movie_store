@@ -1,0 +1,22 @@
+<div ng-controller ="MeusFilmesPresenter" class="col-md-12">
+                    <header class="header-genero">
+                        <h3>Meus Filmes</h3>
+                    </header>
+                    <div ng-repeat="movie in movies" class="col-sm-3 col-lg-3 col-md-3">
+                        <div class="thumbnail">
+                            <img  src="{{movie.urlImg}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">R${{movie.preco}}</h4>
+                                <h4><a>{{movie.nome}}</a>
+                                 </h4>
+                                <p>{{movie.descricao}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{movie.qtdVisualizacao}} reviews</p>
+                                <p>
+                                    <span ng-repeat="num in getTimes(movie.qtdEstrela) track by $index"  class="glyphicon glyphicon-star"  class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+</div>
