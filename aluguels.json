@@ -1,0 +1,2 @@
+{"_id":{"$oid":"57266e752e71ac1b0c2794fa"},"idUsuario":"57263c29533de44d09fc524f","movies":[{"$oid":"56d3a94293e0ce6131eab5ca"}],"dataInicio":{"$date":"2016-05-01T21:00:26.918Z"},"__v":0}
+{"_id":{"$oid":"5726ab29005e0e4a0b119643"},"idUsuario":"5701b8c9115635543793e68d","movies":[{"$oid":"56d3a94293e0ce6131eab5ca"}],"dataInicio":{"$date":"2016-05-02T01:19:32.674Z"},"__v":0}

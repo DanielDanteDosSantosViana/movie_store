@@ -1,0 +1,6 @@
+{"_id":{"$oid":"56d3a240c4fec2e3c8116086"},"movies":[{"$oid":"56d34392c4fec2e3c8116085"},{"$oid":"56d3a94293e0ce6131eab5ca"},{"$oid":"56da54fbff7932fadd795f27"},{"$oid":"56da5b6d6181262ac7baee02"}],"nome":"Ação"}
+{"_id":{"$oid":"56dc9f4c60fa3433f733f805"},"nome":"Comédia","movies":[{"$oid":"56dca25560fa3433f733f806"},{"$oid":"56dcbef1ed391bdc8de12107"},{"$oid":"56dcc5be6dba30d0143b10e4"},{"$oid":"56dcc79ebd55bd65834b2124"}]}
+{"_id":{"$oid":"56dccba89580c6ec2b4ee5b7"},"nome":"Documentário","movies":[{"$oid":"56dccaa61db4a1447deb8cf1"},{"$oid":"56dcccab9580c6ec2b4ee5b8"},{"$oid":"56dccd759580c6ec2b4ee5b9"},{"$oid":"56dcce669580c6ec2b4ee5ba"}]}
+{"_id":{"$oid":"56dcd0429580c6ec2b4ee5bc"},"nome":"Drama","movies":[{"$oid":"56dcd00e9580c6ec2b4ee5bb"},{"$oid":"56dcd15a9580c6ec2b4ee5bd"},{"$oid":"56dcd25d9580c6ec2b4ee5be"},{"$oid":"56dcd33d9580c6ec2b4ee5bf"}]}
+{"_id":{"$oid":"56dcd4cc9580c6ec2b4ee5c1"},"nome":"Ficção","movies":[{"$oid":"56dcd45f9580c6ec2b4ee5c0"},{"$oid":"56dcd6749580c6ec2b4ee5c2"},{"$oid":"56dcd7459580c6ec2b4ee5c3"},{"$oid":"56dcd8859580c6ec2b4ee5c4"}]}
+{"_id":{"$oid":"56dcdee49580c6ec2b4ee5c9"},"nome":"Infantil","movies":[{"$oid":"56dcda0b9580c6ec2b4ee5c5"},{"$oid":"56dcdceb9580c6ec2b4ee5c8"},{"$oid":"56dce07b9580c6ec2b4ee5ca"},{"$oid":"56dce1d79580c6ec2b4ee5cb"}]}
